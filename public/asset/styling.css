@@ -1,0 +1,14 @@
+body{
+    background-color:lightslategray;
+}
+p{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size:14px;
+    color:black
+}
+.header img{
+    float: left;
+    width: 30px;
+    height: 30px;
+  }
