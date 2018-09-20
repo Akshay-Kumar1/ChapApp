@@ -1,6 +1,7 @@
 body{
-    background-color:lightslategray;
-}
+         background-image: url("../template/background.jpg");  
+    }
+    
 p{
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
@@ -8,7 +9,14 @@ p{
     color:black
 }
 .header img{
-    float: left;
-    width: 30px;
-    height: 30px;
+    float : left;
+    width : 25px;
+    height: 25px;
   }
+.middle {
+    padding-top: 175px;
+    padding-right: 500px;
+    padding-bottom: 500px;
+    padding-left: 500px;
+}
+    
