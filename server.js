@@ -1,16 +1,16 @@
-var express     =   require("express");
-var app         =   express();
-var bodyParser  =   require("body-parser");
-var router      =   express.Router();
+var express = require("express");
+var app = express();
+var bodyParser = require("body-parser");
+//var router = express.Router();
+var mongoose = require('mongoose');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({"extended" : false}));
+app.use(bodyParser.urlencoded({ "extended": false }));
 
-router.get("/",function(req,res){
-    res.json({"error" : false,"message" : "API Is Running Fine !!!"});
-});
 
-app.use('/',router);
+var router = require('./server/router/route')
+app.use('/', router);
 
-app.listen(3000);
-console.log("Listening to PORT 3000");
+
+app.listen(4000);
+console.log("Listening to PORT 4000");
