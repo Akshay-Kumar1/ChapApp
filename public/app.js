@@ -1,17 +1,21 @@
-var routerApp = angular.module('ChatApp', ['ui.router']);
+var ChatApp= angular.module('ChatApp', ['ui.router','registerController','loginController']);
 
-routerApp.config(function ($stateProvider, $urlRouterProvider) {
+ChatApp.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/Login');
+    $urlRouterProvider.otherwise('/Registration');
 
     $stateProvider
 
+        // HOME STATES AND NESTED VIEWS ========================================
         .state('Registration', {
             url: '/Registration',
-            templateUrl: 'template/Registration.html'
+            templateUrl: 'template/Registration.html',
+            controller : 'registerCntrl'
         })
-        .state('Login', {
-            url: '/Login',
-            templateUrl: 'template/Login.html'
+        .state('login', {
+            url: '/login',
+            templateUrl: 'template/Login.html',
+            controller : 'loginCntrl'
         })
+
 });

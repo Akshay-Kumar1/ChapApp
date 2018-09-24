@@ -1,3 +1,4 @@
+const { check } = require('express-validator/check')
 var mongoose    =   require("mongoose");
 //var connect= require('../config/config');
 mongoose.connect('mongodb://localhost:27017/demoDb',{ useNewUrlParser: true });
@@ -5,26 +6,18 @@ mongoose.connect('mongodb://localhost:27017/demoDb',{ useNewUrlParser: true });
 var mongoSchema =   mongoose.Schema;
 // create schema
 var userSchema  = new mongoSchema({
-            'fname'  : {
+            'firstname'  : {
                         type : String, 
                         required: true
                     },
-            'mname':  {
-                        type:String, 
-                        required: false
-                    },
-            'lname':  {
+            'lastname':  {
                         type: String, 
                         required: true
                     },
-            'age':    {
-                        type: Number, 
-                        min:18, 
-                        required: false
-                    },
+
             'mobile': {
                         type: Number, 
-                        required: false
+                        required: true
                     },
             'email':  {
                         type: String, 

@@ -1,29 +1,29 @@
-<!Doctype html>
+<!-- <!Doctype html>
 <html>
 
-<head>
+<head> -->
 
-    <div class="header"><img src="../public/template/chat.png"></div>
+    <div class="header"><img src="../asset/chat.png"></div>
 
-    <title>Login Page</title>
+    <!-- <title>Login Page</title> -->
 
     <link rel="stylesheet" href="../asset/styling.css">
     <br>
-</head>
+<!-- </head> -->
 
-<body>
     <div class="middle">
         <center>
             <p2><b>LOGIN</b></p2>
         </center>
         <br>
         <form>
-            <p><b>EMAIL ID</b><input type="text" placeholder="email"></p>
-            <p><b>PASSWORD</b><input type="password" placeholder="password"></p>
-            <p><button type="button">Login</button></p>
-            <p><a href="#!/Registration">Click here to Register</a></p>
+            <br>
+            <p><b>EMAIL ID : </b><input type="text" placeholder="email" ng-model="user.email" required></p>
+            <p><b>PASSWORD : </b><input type="password" placeholder="password" ng-model="user.password" required></p>
+            <p><button type="submit" value="=Submit" ng-click = "login()">Login</button>
+            <p><a href="#/Registration">click here for Registration</a></p> 
+        </form>
     </div>
-    </form>
-</body>
+    
 
-</html>
+<!-- </html> -->

@@ -1,28 +1,27 @@
-<!Doctype html>
-<html>
-    <head>
-        <div class="header"><img src="../public/template/chat.png"></div> 
+
+<!-- <html>
+    <head> -->
+        <div class="header"><img src="../asset/chat.png"></div>
             <br>
             <br>   
-        <title>Registration Page</title>
+        <!-- <title>Registration Page</title> -->
         <link rel="stylesheet" href="../asset/styling.css">
         <p><b><font color = "black"><font size = '5'>REGISTRATION</font><font color="black"</b></p>
-    </head>
-    <body>    
+    <!-- </head>   -->
         <form >
             <br>
-            <p>FIRST NAME <input type="text" placeholder="firstname" ></p>  
+            <p><label>FIRST NAME : </label> <input type="text" placeholder="firstname" ng-model="user.firstname" required ></p>  
             <br>
-            <p>LAST NAME  <input type="text" placeholder="lastname" ></p>
+            <p><label>LAST NAME : </label><input type="text" placeholder="lastname" ng-model="user.lastname" required></p>
             <br>
-            <p>EMAIL ID   <input type="text" placeholder="email" ></p>
+            <p><label>PHONE NUMBER : </label><input type="text" placeholder="phone number" ng-model="user.mobile" required></p>
             <br>
-            <p>PHONE NUMBER <input type="text" placeholder="Phone Number" ></p>
+            <p><label>EMAIL ID : </label><input type="text" placeholder="email" ng-model="user.email" required></p>
             <br>
-            <p>PASSWORD   <input type="password" placeholder="password" ></p>
-            <p><button type="submit" value="=Submit">Submit</button>
+            <p><label>PASSWORD : </label><input type="password" placeholder="password" ng-model="user.password" required></p>
+            <br>
+            <p><button type="submit" value="=Submit" ng-click = "login()">Submit</button>
            <button type="reset" value="Reset">Reset</button></p>
-           <p><a href="#!/Login"><button>Login Page</button></a></p>        
+           <p><a href="#/Login">click here for Login page</a></p>        
         </form>
-  </body>
-</html>
+<!-- </html> -->
