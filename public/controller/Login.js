@@ -1,4 +1,4 @@
-var ChatApp=angular.module('loginController',[]);
+//var ChatApp=angular.module('loginController',[]);
 ChatApp.controller('loginCntrl',function($scope, $http){
     console.log('login');
     $scope.user={

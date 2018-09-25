@@ -6,11 +6,15 @@ mongoose.connect('mongodb://localhost:27017/demoDb',{ useNewUrlParser: true });
 var mongoSchema =   mongoose.Schema;
 // create schema
 var userSchema  = new mongoSchema({
-            'firstname'  : {
+            'firstname': {
                         type : String, 
                         required: true
                     },
             'lastname':  {
+                        type: String, 
+                        required: true
+                    },
+            'email':  {
                         type: String, 
                         required: true
                     },
@@ -19,10 +23,7 @@ var userSchema  = new mongoSchema({
                         type: Number, 
                         required: true
                     },
-            'email':  {
-                        type: String, 
-                        required: true
-                    },
+            
             'password':   {
                             type: String, 
                             required: true
