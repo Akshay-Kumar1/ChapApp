@@ -48,7 +48,8 @@
 //     });
 
 // }
-
+var jwt = require('jsonwebtoken')
+var config = require('../config/token.js')
 exports.login = function (req, res) {
     var usermod = require('../model/users');
     var db = new usermod();
@@ -69,18 +70,22 @@ exports.login = function (req, res) {
             return res.status(400).send(err);
         }
         else {
+            var token = jwt.sign({ id: db._id}, config.secret, {
+                expiresIn: 86400 
+            });
             if (result.length > 0) {
                 var response = {
                     "Success": true,
-                    "message": "Login Successful"
+                    "message": "Login Successful",
+                    "token" :token
                 };
                 return res.status(200).send(response);
             }
             else {
 
                 var response = {
-                    "Success": true,
-                    "message": "password incorrect"
+                    "Success": false,
+                    "message": "Incorrect Password"
                 };
                 return res.status(401).send(response);
             }

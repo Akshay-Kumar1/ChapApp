@@ -6,7 +6,6 @@ ChatApp.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
-        // HOME STATES AND NESTED VIEWS ========================================
         .state('Registration', {
             url: '/Registration',
             templateUrl: 'template/Registration.html',
@@ -16,6 +15,11 @@ ChatApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/Login',
             templateUrl: 'template/Login.html',
             controller : 'loginCntrl'
+        })
+        .state('Homepage', {
+            url: '/Homepage',
+            templateUrl : 'template/Homepage.html',
+            controller : 'homeCntrl'
         })
 
 });

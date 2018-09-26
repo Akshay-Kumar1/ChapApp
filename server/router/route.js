@@ -12,8 +12,8 @@ var response = {};
 
 router.post("/login", users.login);
 router.post('/register', [
-    check('firstname').isLength({ min: 3 }),
-    check('lastname').isLength({ min: 3 }),
+    check('firstname').isLength({ min: 3 }).isAlpha(),
+    check('lastname').isLength({ min: 3 }).isAlpha(),
     check('mobile').isMobilePhone("en-IN"),
     check('email').isEmail(),
     check('password').isLength({ min: 5 })
@@ -58,7 +58,8 @@ router.post('/register', [
                     }
                 }
                 else {
-                    response = { "error": false, "message": "Data successfully added to the database  " }
+ 
+                    response = { "error": false, "message": "Data successfully added to the database  "                }
                 }
                 return res.status(202).send(response);
             });

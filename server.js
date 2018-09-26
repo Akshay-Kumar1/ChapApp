@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ "extended": false }));
+app.use(bodyParser.urlencoded({"extended": false }));
 
 var router = require('./server/router/route')
 app.use('/', router);

@@ -17,17 +17,17 @@ ChatApp.controller('registerCntrl', function($scope, $http) {
         data: $scope.user
     }).then(function(response){
         console.log(response);
-        console.log(response.data.Success);
-        
-        if(response.data.Success==true){
-            console.log("successfull");
+       // console.log(response.data.Success);
+        if(response.data.error==false){
+            console.log(response.data.message);
             $scope.message="Registration Successful";
         }
-        else if(response.data.Success==false){
+        else if(response.data.error==true){
             $scope.message="Registration Unsuccessful"
         }
+    },function(response){
+        console.log(response)
+        $scope.message=response.data.message;
     })
     }
- 
-
 });

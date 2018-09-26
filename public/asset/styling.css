@@ -8,18 +8,57 @@ p{
     font-size:14px;
     color:black
 }
-.header img{
+.header img
+{
     float : left;
     width : 35px;
     height: 35px;
-  } 
-.middle {
+} 
+.middle 
+{
     padding-top: 175px;
     padding-right: 500px;
     padding-bottom: 500px;
     padding-left: 400px;
 }
-label {
+label 
+{
     display:inline-block;
     width:140px;
-    text-align:justify;}
+    text-align:justify;
+}
+.box 
+{
+    top: 0; /* At the bottom. Use top:0 to append it to the top */
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f2f2f2; /* Grey text */
+    width: 60%; /* Full width */
+    padding: 1px; /* Some padding */
+}
+.buttonallign 
+{
+    line-height:12px;
+    width: 150px;
+    font-size: 8pt;
+    font-family: tahoma;
+    margin-top: 1px;
+    margin-right: 2px;
+    position:absolute;
+    top:0;
+    right:0;
+}
+.partition
+{
+    width: 200px;
+    height: 200px;
+    background-color: blanchedalmond;
+    padding-top: 100px;
+    padding-left: 50px;
+}
+.p1
+{
+    bottom : 1;
+    top : 0;
+}
+
