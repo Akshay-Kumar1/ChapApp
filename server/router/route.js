@@ -2,14 +2,15 @@ var express = require('express');
 var router = express.Router();
 var app = express();
 var users = require('../controller/ucontroller')
-
+var auth=require('../router/authRouter.js')
 const { check, validationResult } = require('express-validator/check');
 
 var usermod = require('../model/users');
 // var validator=require('express-validator');
 var db = new usermod();
 var response = {};
-
+router.use('/auth', auth);    
+// app.use('/', router);
 router.post("/login", users.login);
 router.post('/register', [
     check('firstname').isLength({ min: 3 }).isAlpha(),

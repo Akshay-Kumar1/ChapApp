@@ -20,6 +20,7 @@ ChatApp.controller('loginCntrl',function($scope, $http, $state){
         if(response.data.Success==true){
             console.log(response.data.message);
             $scope.message="Login Successful";
+            localStorage.setItem('token',response.data.token)
             $state.go('Homepage')
         }
         else if(response.data.Success==true){
