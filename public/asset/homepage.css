@@ -24,13 +24,14 @@
     float: left;
     width: 420px;
     height: 300px;
+
    
 }
 .rightarea{
     float: right;
     width: 820px;
-    height: 500px;
-    opacity: 0.6;
+    height: 480px;
+
 }
 .users{
     
@@ -42,25 +43,22 @@
 .messagebox{
     
     width: 820px;
-    height: 447px;
+    height: 448px;
     background-color:gray;
 
 }
 .typing{
-    
-    width: 820px;
     height: 100px;
+    /* width: -1000px; */
+
 }
 .typingmessage{
+    position:absolute;
     float: left;
-    width: 720px;
     height: 40px;
-    background-color:white;
-    opacity: 1;
+
 }
- 
-.send{
-    
+.send{  
     float: right;
     width: 90px;
     height: 100px;
@@ -72,4 +70,7 @@ p.double
 p.solid
 {
     border-style: solid;
+}
+.fontweight{
+    font-weight: bold;
 }

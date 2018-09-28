@@ -11,16 +11,17 @@ ChatApp.controller('loginCntrl',function($scope, $http, $state){
         console.log("login calling", $scope.user);
     $http({
         method: 'POST',
-        url: '/login',
+        url: '/login',      
         data: $scope.user
     }).then(function(response){
-        // console.log(response);
-        // console.log(response.data.Success);
-        
+
         if(response.data.Success==true){
             console.log(response.data.message);
             $scope.message="Login Successful";
-            localStorage.setItem('token',response.data.token)
+            var token = response.data.token;
+            localStorage.setItem("token",token)
+            var id = response.data.userid;
+            localStorage.setItem("userid",id)
             $state.go('Homepage')
         }
         else if(response.data.Success==true){

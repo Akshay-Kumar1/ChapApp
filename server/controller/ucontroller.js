@@ -95,7 +95,6 @@ exports.login = function (req, res) {
     });
 }
 exports.listOfUsers=function (req,res) {
-    // return res.status(200).send("all good");
     var userModel = require('../model/users');
     var response = {};
     var arrList=[];
@@ -103,7 +102,7 @@ exports.listOfUsers=function (req,res) {
     userModel.find({"_id":{$ne:userid }},function (err,data) {
         console.log(data);
         for(key in data){
-                arrList.push(response={email:data[key].email,
+                arrList.push({email:data[key].email,name:data[key].firstname,
                                         userid:data[key]._id});
         }
         if(err)

@@ -24,6 +24,7 @@ router.post('/register', [
     if (!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
     }
+    var db = new usermod();
     db.firstname = req.body.firstname;
     db.lastname = req.body.lastname;
     db.mobile = req.body.mobile;
@@ -55,7 +56,7 @@ router.post('/register', [
                 if (err) {
                     response = {
                         "error": true,
-                        "message": "There was a error storing the data "
+                        "message": "There was an error storing the data "
                     }
                 }
                 else {
