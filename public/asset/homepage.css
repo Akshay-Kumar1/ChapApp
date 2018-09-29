@@ -12,8 +12,7 @@
     width: 30px;
     height: 30px;
 }
-.logout{
-    
+.logout{    
     float: right;
 }
 .area{
@@ -70,7 +69,4 @@ p.double
 p.solid
 {
     border-style: solid;
-}
-.fontweight{
-    font-weight: bold;
 }

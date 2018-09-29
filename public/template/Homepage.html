@@ -9,66 +9,64 @@
 </head>
 <!-- <center> -->
 
-    <body>
-        <div>
-            <link rel="stylesheet" href="../asset/homepage.css">
-            <div class="container">
-                <div class="header">
-                    <center>
-                        <h2 font-family:verdana>ChatApp</h2>
-                    </center>
-                    <div class="logo">
-                        <img src="../asset/chat.png" height="70px" width="70px">
-                    </div>
-                    <div class="logout">
-                        <a href="#!/Login"><button type="logout" value="logout">Logout</button></a>
+<body>
+    <div>
+        <link rel="stylesheet" href="../asset/homepage.css">
+        <div class="container">
+            <div class="header">
+                <center>
+                    <h2 font-family:verdana>ChatApp</h2>
+                </center>
+                <div class="logo">
+                    <img src="../asset/chat.png" height="70px" width="70px">
+                </div>
+                <div class="logout">
+                    <button type="logout" value="logout">Logout</button>
+                </div>
+            </div>
+            <div class="area">
+                <div class="leftarea">
+                    <div class="users">
+                        <p class="double">
+                            <!-- <center> -->
+                            <p font-family:verdana>USERS</p>
+                            <p class="double">
+
+                            </p>
+                            <ol>
+                                <li ng-repeat="key in arr">
+                                    {{key}}
+                                </li>
+                            </ol>
+                            <!-- </center> -->
+                        </p>
                     </div>
                 </div>
-                <div class="area">
-                    <div class="leftarea">
-                        <div class="users">
-                            <p class="double">
-                                <!-- <center> -->
-                                    <p font-family:verdana>USERS</p>
-                                    <p class="double">
+                <div class="rightarea">
+                    <div class="messagebox">
+                        <p class="double">
+                            <center>
+                                <p font-family:verdana>MESSAGE CENTER</p>
+                                <p class="double">
 
-                                    </p>
-                                    <ol>
-                                     <li ng-repeat = "key in arr" >
-                                            <div class="fontweight">{{key}}</div>
-                                     </li>
-                                    </ol>
-                                <!-- </center> -->
-                            </p>
-                        </div>
+                                </p>
+                            </center>
+                        </p>
+
                     </div>
-                    <div class="rightarea">
-                        <div class="messagebox">
-                            <p class="double">
-                                <center>
-                                    <p font-family:verdana>MESSAGE CENTER</p>
-                                    <p class="double">
-                                        
-                                     </p>
-                                </center>
-                            </p>
-
-                        </div>
-                        <div class="typing">
-                            <div class="typingmessage"></div>
-                            <textarea placeholder="Type your message" rows="3" cols="95">
+                    <div class="typing">
+                        <div class="typingmessage"></div>
+                        <textarea placeholder="Type your message" rows="3" cols="95">
 
                         </textarea>
-                            <div class="send">
-                                <center><button type="submit" value="Submit">Send</button></center>
-                            </div>
+                        <div class="send">
+                            <center><button type="submit" value="Submit">Send</button></center>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 <!-- </center> -->
-
 </html>

@@ -28,5 +28,5 @@ ChatApp.controller('homeCntrl', function ($scope,$http) {
             $location.path('/login')
     
         }
-        
+        var socket = io.connect('http://localhost:4000');
     })
