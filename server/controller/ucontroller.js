@@ -62,6 +62,7 @@ exports.login = function (req, res) {
 
     usermod.find({ email: db.email, password: password }, function (err, result) {
         //console.log("result: " + result);
+        var username=result[0].firstname+' '+result[0].lastname;
         if (err) {
             response = {
                 "Success": false,
@@ -78,7 +79,8 @@ exports.login = function (req, res) {
                     "Success": true,
                     "message": "Login Successful",
                     "token" :token,
-                    "userid": result[0]._id
+                    "userid": result[0]._id,
+                    "username":username
                 };
                 return res.status(200).send(response);
             }
@@ -99,6 +101,7 @@ exports.listOfUsers=function (req,res) {
     var response = {};
     var arrList=[];
     var userid=req.params.id;
+    //var username=result[0].firstname+' '+result[0].lastname;
     userModel.find({"_id":{$ne:userid }},function (err,data) {
         console.log(data);
         for(key in data){
@@ -120,3 +123,51 @@ exports.listOfUsers=function (req,res) {
         return res.status(200).send(response);
     })
 }
+
+exports.addtodb=function (id,username,message,date) {
+    var userModel = require('../model/message');
+    var db = new userModel();
+    var response={};
+    db.message=message;
+    db.date=date;
+    db.id=id;
+    db.username=username;
+    db.save(function (err) {
+        if (err) {
+            response = {
+                "error": true,
+                "message": "error storing data"
+            }
+        }
+        else {
+            response = { "error": false, "message":"succesfully added to database" }
+        }
+    });
+    console.log(response)
+
+}
+exports.getmsgs=function(req,res){
+    var userModel = require('../model/message');
+    var response = {};
+    userModel.find({},function(err,data){
+        if(data){
+            response={
+                "error":false,
+                "message":data
+                
+            }
+            res.status(200).send(response);
+        }
+        else{
+            response={
+                "error":true,
+                "message":"something went wrong",
+                
+            }
+            console.log(err);
+            res.status(401).send(response);
+        }
+       
+    })
+}
+

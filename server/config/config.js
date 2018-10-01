@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 exports=function ConnectDB() {
 
     console.log("in");

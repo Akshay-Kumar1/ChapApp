@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var server = require('http').Server(app)
 var io = require('socket.io')(server)
+var users=require('./server/controller/ucontroller')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({"extended": false }));
@@ -20,5 +21,9 @@ io.on('connection',function(client){
     console.log('Connected')
     client.on('disconnect',function(){
         console.log('disconnected')
+    })
+    client.on('tobackend',function (data) {
+        users.addtodb(data.id,data.username,data.message,data.date);
+        io.emit('tofrontend',data)
     })
 })

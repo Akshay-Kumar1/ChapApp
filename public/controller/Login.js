@@ -22,6 +22,8 @@ ChatApp.controller('loginCntrl',function($scope, $http, $state){
             localStorage.setItem("token",token)
             var id = response.data.userid;
             localStorage.setItem("userid",id)
+            var username = response.data.username;
+            localStorage.setItem("username",username)
             $state.go('Homepage')
         }
         else if(response.data.Success==true){

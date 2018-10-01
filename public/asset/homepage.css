@@ -36,14 +36,15 @@
     
     width: 420px;
     height: 500px;
-    background-color:gray;
-    opacity: 0.6;
+    background-color:lightgoldenrodyellow;
+    overflow-y : auto
 }
 .messagebox{
     
     width: 820px;
     height: 448px;
-    background-color:gray;
+    background-color:lightgoldenrodyellow;
+    overflow-y : auto;
 
 }
 .typing{

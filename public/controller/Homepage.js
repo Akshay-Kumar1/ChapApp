@@ -3,10 +3,13 @@
 //     localStorage.getItem('userid')
 
 //  })
-ChatApp.controller('homeCntrl', function ($scope,$http) {
+ChatApp.controller('homeCntrl', function ($scope,$http,$location,SocketService) {
     var mytoken =localStorage.getItem("token");
     var id=localStorage.getItem("userid");
+    var username=localStorage.getItem("username");
     console.log("id is"+id)
+       var msgArr=[];
+       var nameArr=[];
        var arr=[];
     $http({
         method: 'GET',
@@ -14,19 +17,37 @@ ChatApp.controller('homeCntrl', function ($scope,$http) {
         headers:{
             'token': mytoken
         }
-    }).then(function (response) {
-        console.log(response.data.message)
-        for(var i=0;i<(response.data.message).length;i++){
-            arr.push(response.data.message[i].name)
+   }).then(function (response) {
+    for(var i=0;i<(response.data.message).length;i++){
+        arr.push(response.data.message[i].name)
+    }
+    // console.log(arr);
+})
+    $scope.arr=arr;
+    $scope.sendMessage = function () 
+    {
+        SocketService.emit('tobackend', { "userid": id, "message": $scope.message, "date": new Date(),"username":username})
+    }
+    $http({
+        method: 'GET',
+        url: '/auth/users/'+id+'/msgs',
+        headers: {
+            'token': mytoken
         }
-        // console.log(arr);
+    }).then(function (response) {
+        for(var i=0;i<(response.data.message).length;i++)
+        msgArr.push(response.data.message[i]);
+        //nameArr.push(response.data.message[i].username);
     })
-        $scope.arr = arr;
+    $scope.msgArr=msgArr;
         $scope.logout=function () {
             localStorage.removeItem(token);
             localStorage.removeItem(userid);
             $location.path('/login')
     
-        }
-        var socket = io.connect('http://localhost:4000');
+    }
+        SocketService.on('tofrontend',function(msg){
+            $scope.msgArr.push(msg)
+        })    
+
     })

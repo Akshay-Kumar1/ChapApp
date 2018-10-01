@@ -21,7 +21,7 @@
                     <img src="../asset/chat.png" height="70px" width="70px">
                 </div>
                 <div class="logout">
-                    <button type="logout" value="logout">Logout</button>
+                    <button type="logout" value="logout" ng-click='logout()'>Logout</button>
                 </div>
             </div>
             <div class="area">
@@ -51,16 +51,20 @@
 
                                 </p>
                             </center>
+                            <ul ng-repeat="data in msgArr track by $index">
+                                <h5>{{data.message}}</h5>
+                                <h6>{{data.date | date:'medium'}}</h6>
+                            </ul>
+                            
                         </p>
-
                     </div>
                     <div class="typing">
                         <div class="typingmessage"></div>
-                        <textarea placeholder="Type your message" rows="3" cols="95">
+                        <textarea placeholder="Type your message" rows="3" cols="88" ng-model="message">
 
                         </textarea>
                         <div class="send">
-                            <center><button type="submit" value="Submit">Send</button></center>
+                            <center><button type="submit" value="Submit" ng-click = "sendMessage()">Send</button></center>
                         </div>
                     </div>
                 </div>
