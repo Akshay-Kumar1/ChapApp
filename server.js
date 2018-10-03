@@ -23,7 +23,7 @@ io.on('connection',function(client){
         console.log('disconnected')
     })
     client.on('tobackend',function (data) {
-        users.addtodb(data.id,data.username,data.message,data.date);
+        users.addtodb(data.userid,data.username,data.message,data.date);
         io.emit('tofrontend',data)
     })
 })

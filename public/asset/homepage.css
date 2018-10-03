@@ -1,55 +1,72 @@
 .container{
-    width: 1260px;
+    width: 1265px;
+    height: 580px;
+    /* background-color:green;  */
+
 }
 .header{
-    width: 1260px;
-    height: 100px;
+    width: 1265px;
+    height: 40px;
+    /* background-color: aqua; */
 }
 .logo{
     position:absolute;
     top: 25px;
     float: left;
-    width: 30px;
-    height: 30px;
+    /* width: 40px;
+    height: 40px; */
 }
 .logout{    
     float: right;
 }
 .area{
     width: 1260px;
-    height: 300px;
+    height: 535px;
+    /* background-color: brown */
 }
 .leftarea{
     float: left;
-    width: 420px;
-    height: 300px;
-
+    width: 320px;
+    height: 400px;
+    padding-top:70px;
+    padding-left:60px;
+    /*padding-bottom: 10px;
+    padding-left: 40px; */
+    /* background-color: black;  */
    
 }
 .rightarea{
     float: right;
-    width: 820px;
-    height: 480px;
+    /* padding-top:10px;
+    padding-bottom: 150px; */
+    width: 825px;
+    height: 400px;
+    /* background-color:yellow;  */
+    padding-right:30px;
 
 }
 .users{
-    
-    width: 420px;
-    height: 500px;
-    background-color:lightgoldenrodyellow;
-    overflow-y : auto
+    /* padding-top: 55px; */
+    border:1.5px solid white;
+    border-radius: 10px;
+    width: 285px;
+    height: 400px;
+    /* padding-left: 110px; */
+    background-color:lightslategray;
+    overflow-y : auto;
 }
 .messagebox{
-    
+    border:1.5px solid black;
+    border-radius: 20px;
     width: 820px;
-    height: 448px;
-    background-color:lightgoldenrodyellow;
+    height: 420px;
+    background-color:lightslategray;
     overflow-y : auto;
+    /* padding-right: 20px; */
 
 }
 .typing{
     height: 100px;
-    /* width: -1000px; */
 
 }
 .typingmessage{
@@ -58,16 +75,58 @@
     height: 40px;
 
 }
-.send{  
+.send{ 
+    padding-top:10px;
     float: right;
     width: 90px;
-    height: 100px;
+    height: 80px;
 } 
-p.double
- {
-    border-style: double; 
- }
-p.solid
+
+.msgsright
 {
-    border-style: solid;
+    text-align: left;
+    font-family:'Courier New', Courier, monospace;
+    border:1.5px solid whitesmoke;
+    background-color:whitesmoke;
+    border-radius:5px;
+    color:white;
+    padding: 12px;
+    margin:10px;
+    width: 50%;
+    height:60px;
+    font-size:14px;
+    float: right; 
 }
+.msgsleft
+{   
+    text-align: left;
+    font-family:'Courier New', Courier, monospace;
+    border:1.5px solid white;
+    background-color:white;
+    border-radius:5px;
+    padding: 12px;
+    margin:10px;
+    width: 50%;
+    height:70px;
+    font-size:14px;
+    color:whitesmoke;
+    float: left;
+    font-style: italic
+
+}
+textarea
+{
+   -moz-border-radius: 15px;
+    border-radius: 15px;
+    border:solid 1px black;
+}
+.bord
+{
+    border-radius:5px;
+}
+button.link 
+{ 
+    background:none;border:none; 
+}
+
+

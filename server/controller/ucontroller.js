@@ -62,7 +62,7 @@ exports.login = function (req, res) {
 
     usermod.find({ email: db.email, password: password }, function (err, result) {
         //console.log("result: " + result);
-        var username=result[0].firstname+' '+result[0].lastname;
+        // var username=result[0].firstname+' '+result[0].lastname;
         if (err) {
             response = {
                 "Success": false,
@@ -80,7 +80,7 @@ exports.login = function (req, res) {
                     "message": "Login Successful",
                     "token" :token,
                     "userid": result[0]._id,
-                    "username":username
+                    "username":result[0].firstname+' '+result[0].lastname
                 };
                 return res.status(200).send(response);
             }
@@ -124,14 +124,14 @@ exports.listOfUsers=function (req,res) {
     })
 }
 
-exports.addtodb=function (id,username,message,date) {
+exports.addtodb=function (userid,username,message,date) {
     var userModel = require('../model/message');
     var db = new userModel();
     var response={};
+    db.userid=userid;
+    db.username=username;
     db.message=message;
     db.date=date;
-    db.id=id;
-    db.username=username;
     db.save(function (err) {
         if (err) {
             response = {

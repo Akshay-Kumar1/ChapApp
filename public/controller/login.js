@@ -24,7 +24,7 @@ ChatApp.controller('loginCntrl',function($scope, $http, $state){
             localStorage.setItem("userid",id)
             var username = response.data.username;
             localStorage.setItem("username",username)
-            $state.go('Homepage')
+            $state.go('homepage')
         }
         else if(response.data.Success==true){
             $scope.message="Login Unsuccessful"

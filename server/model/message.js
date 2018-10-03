@@ -6,22 +6,24 @@ mongoose.connect('mongodb://localhost:27017/demoDb',{ useNewUrlParser: true });
 var mongoSchema =   mongoose.Schema;
 // create schema
 var messageSchema  = new mongoSchema({
-            'message':{
+         'userid':{
+                 type: String,
+                    required:true
+                },
+        'username':{
+                    type: String,
+                    required:true
+                }, 
+        'message':{
                         type : String, 
                         required: true
-                        },
-            'date':{
+                 },
+        'date':{
                         type: Date, 
                         required: true
-                    },
-        'username':{
-                        type: String,
-                        required:true
-                    },
-          'id':{
-                type: String,
-                required:true
-               }        
+                }
+        
+                 
 });
 // create model if not exists.
 module.exports = mongoose.model('userMessage',messageSchema);

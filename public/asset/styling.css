@@ -1,5 +1,7 @@
 body{
-         background-image: url('../asset/background.jpg');  
+         background-image: url('../asset/texture.jpg');  
+         background-repeat: no-repeat;
+         background-position: absolute;
     }  
     
 p{
@@ -61,4 +63,3 @@ label
     bottom : 1;
     top : 0;
 }
-

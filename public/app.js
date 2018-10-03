@@ -2,23 +2,23 @@ var ChatApp= angular.module('ChatApp',['ui.router','btford.socket-io']);
 
 ChatApp.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/Registration');
+    $urlRouterProvider.otherwise('/registration');
 
     $stateProvider
 
-        .state('Registration', {
-            url: '/Registration',
-            templateUrl: 'template/Registration.html',
+        .state('registration', {
+            url: '/registration',
+            templateUrl: 'template/registration.html',
             controller : 'registerCntrl'
         })
-        .state('Login', {
-            url: '/Login',
-            templateUrl: 'template/Login.html',
+        .state('login', {
+            url: '/login',
+            templateUrl: 'template/login.html',
             controller : 'loginCntrl'
         })
-        .state('Homepage', {
-            url: '/Homepage',
-            templateUrl : 'template/Homepage.html',
+        .state('homepage', {
+            url: '/homepage',
+            templateUrl : 'template/homepage.html',
             controller : 'homeCntrl'
         })
 
