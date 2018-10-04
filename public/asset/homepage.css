@@ -47,7 +47,7 @@
 }
 .users{
     /* padding-top: 55px; */
-    border:1.5px solid white;
+    border:1.5px solid black;
     border-radius: 10px;
     width: 285px;
     height: 400px;
@@ -93,9 +93,11 @@
     padding: 12px;
     margin:10px;
     width: 50%;
-    height:60px;
+    /* height:60px; */
     font-size:14px;
     float: right; 
+    word-wrap: break-word;
+    height:fit-content
 }
 .msgsleft
 {   
@@ -107,11 +109,13 @@
     padding: 12px;
     margin:10px;
     width: 50%;
-    height:70px;
+    /* height:70px; */
     font-size:14px;
     color:whitesmoke;
     float: left;
-    font-style: italic
+    font-style: italic;
+    word-wrap: break-word;
+    height: fit-content;
 
 }
 textarea

@@ -9,53 +9,75 @@
 </head>
 <center>
 
-<body>
-    <div>
-        <link rel="stylesheet" href="../asset/homepage.css">
-        <div class="container">
-            <div class="header">
+    <body>
+        <div>
+            <link rel="stylesheet" href="../asset/homepage.css">
+            <div class="container">
+                <div class="header">
                     <div class="logout">
-                            <button type="logout" value="logout" ng-click='logout()' style='height:35px;width:80px;border-radius:15px;'>Logout</button>
-                        </div>
-                <center>
-                    <h2 font-family:verdana>
-                        <font color="white">ChatApp</font>
-                    </h2>
-                </center>
-                <div class="logo">
-                    <img src="../asset/logo.png">
-                </div>
-                
-            </div>
-            <div class="area">
-                <div class="leftarea">
-            
-                    <div class="users">
-                            <center>
-                                    <br>
-                                    <p><i><b>   
-                                                <font color="black">CONTACTS</font>
-                                                <hr>
-                                            </b></i></p>
-                                </center>
-                        <ol>
-                        <li ng-repeat="key in arr">
-                           <button class="link">{{key}}</button> 
-                            <hr>
-                        </li>
-                    </ol>
+                        <button type="logout" value="logout" ng-click='logout()' style='height:35px;width:80px;border-radius:15px;'>Logout</button>
+                    </div>
+                    <center>
+                        <h2 font-family:verdana>
+                            <font color="white">ChatApp</font>
+                        </h2>
+                    </center>
+                    <div class="logo">
+                        <img src="../asset/logo.png">
                     </div>
                 </div>
-                <div class="rightarea">
+                <div class="area">
+                    <div class="leftarea">
 
-                    <center>
+                        <div class="users">
+                            <center>
+                                <br>
+                                <p><i><b>
+                                            <font color="black">CONTACTS</font>
+                                            <hr>
+                                        </b></i></p>
+                            </center>
+                            <ol>
+                                <li ng-repeat="key in arr">
+                                    <button class="link" ng-click="navigate(key)">{{key}}</button>
+                                    <hr>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="rightarea">
+
+                        <br>
                         <p><i><b>
-                                        <font color="white">MESSAGE CENTER
+                                    <font color="white">MESSAGE CENTER</font>
                                 </b></i></p>
-                                <hr>
-                    </center>
-                    <div class="messagebox">
-                        <ul>
+                        <hr>
+
+                        <div class="messagebox" ng-if="val==0">
+                            <ul>
+                                <div ng-repeat="data in msgArr track by $index">
+                                    <div class="msgsleft" ng-if="currUser != data.username">
+                                        <!-- <h4 style="color:black">{{data.username}} : {{data.message}}</h4> -->
+                                        <font color="black">{{data.username}} : {{data.message}}</font>
+                                        <br>
+                                        <h5>
+                                            <font color="blue">{{data.date | date: 'medium'}}</font>
+                                        </h5>
+                                    </div>
+                                    <div class="msgsright" ng-if="currUser == data.username">
+                                        <!-- <h4 style="color:black">{{data.username}} : {{data.message}}</h4> -->
+                                        <font color="black">{{data.username}} : {{data.message}}</font>
+                                        <br>
+                                        <h5>
+                                            <font color="darkblue">{{data.date | date: 'medium'}}</font>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </ul>
+
+                        </div>
+                        <div class="messagebox" ng-if="val==1">
+                            
                             <div ng-repeat="data in msgArr track by $index">
                                 <div class="msgsleft" ng-if="currUser != data.username">
                                     <!-- <h4 style="color:black">{{data.username}} : {{data.message}}</h4> -->
@@ -74,27 +96,24 @@
                                     </h5>
                                 </div>
                             </div>
-                        </ul>
 
-                    </div>
-                    <div class="typing">
-                        <div class="typingmessage"></div>
-                        <textarea placeholder="Type your message" rows="3" cols="88" ng-model="message">
-
-
+                        </div>
+                        <div class="typing">
+                            <div class="typingmessage"></div>
+                            <textarea placeholder="Type your message" rows="3" cols="88" ng-model="message">
 
                         </textarea>
-                        <div class="send">
-                            <div class="bord">
-                            <center><button type="submit" value="Submit" ng-click='sendMessage()' style='height:35px;width:80px;border-radius:15px;'>Send</button></center>
-                        </div>
+                            <div class="send">
+                                <div class="bord">
+                                    <center><button type="submit" value="Submit" ng-click='sendMessage()' style='height:35px;width:80px;border-radius:15px;'>Send</button></center>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </center>
 
 </html>

@@ -28,7 +28,8 @@ var privateChatSchema  = new mongoSchema({
                             type: String, 
                             required: true
                         },
-            'receiverId':   {
+            'receiverId':  
+                     {
                         type: String, 
                         required: true
                     }

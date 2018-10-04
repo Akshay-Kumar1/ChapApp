@@ -11,6 +11,7 @@ ChatApp.controller('homeCntrl', function ($scope,$http,$location,SocketService) 
     console.log("id is"+id)
        var msgArr=[];
        var arr=[];
+       $scope.val =0;
     $http({
         method: 'GET',
         url: 'auth/users/'+id+'/list',
@@ -45,6 +46,11 @@ ChatApp.controller('homeCntrl', function ($scope,$http,$location,SocketService) 
             localStorage.removeItem('userid');
             $location.path('/login')
     
+    }
+    $scope.navigate = function(username)
+    {
+        console.log(username);
+        $scope.val =1; 
     }
         SocketService.on('tofrontend',function(msg){
             $scope.msgArr.push(msg)
