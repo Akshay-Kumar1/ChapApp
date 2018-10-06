@@ -12,10 +12,10 @@
     <body>
         <div>
             <link rel="stylesheet" href="../asset/homepage.css">
-            <div class="container">
+            <div class="container" ng-controller="singleChatCntrl">
                 <div class="header">
                     <div class="logout">
-                        <button type="logout" value="logout" ng-click='logout()' style='height:35px;width:80px;border-radius:15px;'>Logout</button>
+                       <a href = "#!/homepage"> <button type="logout" value="logout" ng-click='close()' style='height:35px;width:80px;border-radius:15px;'>Close</button></a>
                     </div>
                     <center>
                         <h2 font-family:verdana>
@@ -38,10 +38,7 @@
                                         </b></i></p>
                             </center>
                             <ol>
-                                <li ng-repeat="key in arr">
-                                    <a href ng-click="person(key)">
-                                    <font color ="black">{{key.name}}</font></a>
-                                </li>
+                                <!-- <div> {{senderName}} </div> -->
                             </ol>
                         </div>
                     </div>
@@ -55,18 +52,20 @@
 
                         <div class="messagebox">
                             <ul>
-                                <div ng-repeat="data in msgArr track by $index">
-                                    <div class="msgsleft" ng-if="currUser != data.username">
-                                        <!-- <h4 style="color:black">{{data.username}} : {{data.message}}</h4> -->
-                                        <font color="black">{{data.username}} : {{data.message}}</font>
+                                    
+                                <div ng-repeat="data in chatlist track by $index">
+                                    <div class="msgsleft" ng-if="currUser != data.senderName">
+                                     <!-- <h4 style="color:black">{{data.username}} : {{data.message}}</h4> -->
+                                        <font color="black">{{data.senderName}} : {{data.message}}</font>
+                                          
                                         <br>
                                         <h5>
                                             <font color="blue">{{data.date | date: 'medium'}}</font>
                                         </h5>
                                     </div>
-                                    <div class="msgsright" ng-if="currUser == data.username">
+                                    <div class="msgsright" ng-if="currUser == data.senderName">
                                         <!-- <h4 style="color:black">{{data.username}} : {{data.message}}</h4> -->
-                                        <font color="black">{{data.username}} : {{data.message}}</font>
+                                        <font color="black">{{data.senderName}} : {{data.message}}</font>
                                         <br>
                                         <h5>
                                             <font color="darkblue">{{data.date | date: 'medium'}}</font>
@@ -83,7 +82,7 @@
                         </textarea>
                             <div class="send">
                                 <div class="bord">
-                                    <center><button type="submit" value="Submit" ng-click='sendMessage()' style='height:35px;width:80px;border-radius:15px;'>Send</button></center>
+                                    <center><button type="submit" value="Submit" ng-click='send()' style='height:35px;width:80px;border-radius:15px;'>Send</button></center>
                                 </div>
                             </div>
                         </div>

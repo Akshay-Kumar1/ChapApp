@@ -170,54 +170,109 @@ exports.getmsgs=function(req,res){
        
     })
 }
-exports.addChat=function(senderName,receiverName,message,date,senderId,receiverId)
-{
-    var userModel = require('../model/privateChat');
-    var db = new userModel();
+exports.peerMessages=function(senderId,senderName,receiverId,receiverName,message,date){
+    var messageMod=require('../model/singleChat');
+    var msgdb=new messageMod();
     var response={};
-    db.senderName=senderName;
-    db.receiverName=receiverName;
-    db.message=message;
-    db.date=date;
-    db.senderId=senderId;
-    db.receiverId=receiverId;
-    db.save(function (err) {
+    msgdb.message= message;
+    
+    msgdb.senderId=senderId;
+    msgdb.receiverId= receiverId;
+    msgdb.senderName= senderName;
+    msgdb.receiverName= receiverName;
+    msgdb.date=date;
+    // console.log(username);
+
+    msgdb.save(function (err) {
+        
         if (err) {
             response = {
-                "error": true,
-                "message": "error storing data"
-            }
+                "Success": false,
+                "message": "Error adding data",
+                "err": err
+            };
+        } else {
+            response = {
+                "Success": true,
+                "message": "Successfully Sent"
+            };
         }
-        else {
-            response = { "error": false, "message":"succesfully added to database" }
-        }
+        console.log(response);
+        
     });
-    console.log(response)
-
 }
-exports.getSingleMsgs=function(req,res){
-    var userModel = require('../model/privateChat');
-    var response = {};
+exports.singleChatList= function(req,res)
+{
+    var messageMod=require('../model/singleChat');
+    
+    var response={};
     var receiverId=req.params.receiverId;
     var senderId=req.params.senderId;
-    userModel.find({$or:[{'receiverId':receiverId,'senderId':senderId},{'senderId':senderId,'receiverId':receiverId}]},function(err,data){
-        if(data){
+    messageMod.find({$or:[{'receiverId':receiverId,'senderId':senderId},{'senderId':receiverId,'receiverId':senderId}]}, function(err,result){
+        if (err) {
+            response = {
+                "Success": false,
+                "message": "Error fetching data"
+            };
+            return res.status(404).send(err);
+        } else {
             response={
-                "error":false,
-                "message":data
-                
+                "Success": true,
+                "message": result
             }
-            res.status(200).send(response);
+            
         }
-        else{
-            response={
-                "error":true,
-                "message":"something went wrong",
-                
-            }
-            console.log(err);
-            res.status(401).send(response);
-        }
-       
-    })
+            return res.status(200).send(response);
+    });
 }
+// exports.addChat=function(senderName,receiverName,message,date,senderId,receiverId)
+// {
+//     var userModel = require('../model/privateChat');
+//     var db = new userModel();
+//     var response={};
+//     db.senderName=senderName;
+//     db.receiverName=receiverName;
+//     db.message=message;
+//     db.date=date;
+//     db.senderId=senderId;
+//     db.receiverId=receiverId;
+//     db.save(function (err) {
+//         if (err) {
+//             response = {
+//                 "error": true,
+//                 "message": "error storing data"
+//             }
+//         }
+//         else {
+//             response = { "error": false, "message":"succesfully added to database" }
+//         }
+//     });
+//     console.log(response)
+
+// }
+// exports.getSingleMsgs=function(req,res){
+//     var userModel = require('../model/privateChat');
+//     var response = {};
+//     var receiverId=req.params.receiverId;
+//     var senderId=req.params.senderId;
+//     userModel.find({$or:[{'receiverId':receiverId,'senderId':senderId},{'senderId':senderId,'receiverId':receiverId}]},function(err,data){
+//         if(data){
+//             response={
+//                 "error":false,
+//                 "message":data
+                
+//             }
+//             res.status(200).send(response);
+//         }
+//         else{
+//             response={
+//                 "error":true,
+//                 "message":"something went wrong",
+                
+//             }
+//             console.log(err);
+//             res.status(401).send(response);
+//         }
+       
+//     })
+// }

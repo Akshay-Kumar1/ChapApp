@@ -5,7 +5,7 @@ mongoose.connect('mongodb://localhost:27017/demoDb',{ useNewUrlParser: true });
 // create instance of Schema
 var mongoSchema =   mongoose.Schema;
 // create schema
-var privateChatSchema  = new mongoSchema({
+var singleMessageSchema  = new mongoSchema({
             'senderName': {
                         type : String, 
                         required: true
@@ -35,4 +35,4 @@ var privateChatSchema  = new mongoSchema({
                     }
 });
 // create model if not exists.
-module.exports = mongoose.model('privateChat',privateChatSchema);
+module.exports = mongoose.model('peermessages',singleMessageSchema);

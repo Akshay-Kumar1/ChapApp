@@ -25,5 +25,12 @@ io.on('connection',function(client){
     client.on('tobackend',function (data) {
         users.addtodb(data.userid,data.username,data.message,data.date);
         io.emit('tofrontend',data)
+
     })
-})
+    client.on('singleChatBackend',function(data){
+        console.log(data.receiverId);
+        
+        users.peerMessages(data.senderId,data.senderName,data.receiverId,data.receiverName,data.message,data.date)
+        io.emit(data.receiverId,data);
+    })
+});
